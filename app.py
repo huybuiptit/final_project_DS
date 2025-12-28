@@ -222,23 +222,5 @@ with tab3:
             ax2.legend()
             st.pyplot(fig2)
         
-        # Giải thích
-        st.markdown("---")
-        col_info1, col_info2 = st.columns(2)
-        with col_info1:
-            st.success(
-                "**✅ Ưu điểm:**\n"
-                f"- Precision@5 cao ({eval_results['precision_at_k']*100:.1f}%): Gợi ý đúng thể loại\n"
-                f"- Recall@5 tốt ({eval_results['recall_at_k']*100:.1f}%): Bao phủ nhiều thể loại\n"
-                "- BERT hiểu ngữ nghĩa đa ngôn ngữ"
-            )
-        with col_info2:
-            st.info(
-                "**📝 Giải thích Metrics:**\n"
-                "- **Precision@K**: % phim gợi ý có ít nhất 1 thể loại trùng\n"
-                "- **Recall@K**: % thể loại gốc được cover bởi gợi ý\n"
-                "- **RMSE/MAE**: Sai số dự đoán rating (thấp = tốt)"
-            )
-    
     except FileNotFoundError:
         st.warning("⚠️ Chưa có kết quả đánh giá. Chạy: `python step3_evaluation.py`")
